@@ -42,6 +42,10 @@ class User {
             console.log("Insufficient balance or invalid amount.");
         }
     }
+
+    check_balance():void{
+        console.log(`Your current balance is : $${this.balance.toFixed(2)}`)
+    }
 }
 
 // Sample usage
@@ -61,10 +65,17 @@ rl.question("Enter first user's username: ", (username1) => {
                 rl.question(`Enter the amount to deposit for ${user1.username}: `, (inputAmount) => {
                     const amount = parseFloat(inputAmount);
                     user1.deposit(amount);
+                    
+                    // Check balance after deposite
+                    user1.check_balance()
 
                     rl.question(`Enter the amount to transfer from ${user1.username} to ${user2.username}: `, (transferAmountStr) => {
                         const transferAmount = parseFloat(transferAmountStr);
                         user1.transfer(user2, transferAmount);
+                   
+                    // check balance after the transection :
+                    user1.check_balance()
+                    user2.check_balance()
 
                         console.log(`\n${user1.username}'s Transaction History: ${user1.transactionHistory}`);
                         console.log(`${user2.username}'s Transaction History: ${user2.transactionHistory}`);
