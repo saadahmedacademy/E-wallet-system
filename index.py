@@ -33,6 +33,9 @@ class User:
         else:
             print("Insufficient balance or invalid amount.")
 
+    def check_balance(self)-> None:
+        print(f"Your current balance is : ${self.balance:.2f}")
+
 # Sample usage
 if __name__ == "__main__":
     # Create two users
