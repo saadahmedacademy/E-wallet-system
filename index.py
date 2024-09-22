@@ -35,6 +35,17 @@ class User:
 
     def check_balance(self)-> None:
         print(f"Your current balance is : ${self.balance:.2f}")
+    
+    # To show the transection history
+    def show_transection_history(self)->None:
+        if self.transaction_history :
+          print(f"The transection History for {self.username}")
+
+          for history in transaction_history:
+            print(f" - {history}")
+        
+        else:
+            print("No transection found")
 
 # Sample usage
 if __name__ == "__main__":
@@ -56,5 +67,5 @@ if __name__ == "__main__":
     user1.transfer(user2, transfer_amount)
 
     # Display transaction histories
-    print(f"\n{user1.username}'s Transaction History: {user1.transaction_history}")
-    print(f"{user2.username}'s Transaction History: {user2.transaction_history}")
+     user1.show_transection_history
+     user2.show_transection_history
